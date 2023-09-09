@@ -68,22 +68,22 @@ class ProductForm extends BaseForm
         $files = Validator::make($this->files, [
             'cover_image' => 'nullable|image|max:1024', // 1MB Max
             'screenshots.*' => 'image|max:1024',
-            'packages.*' => 'file|mimes:zip',
+            // 'packages.*' => 'file|mimes:zip',
         ])->validate();
 
-        // store validated package files
-        if (isset($files['packages'])) {
-            foreach ($files['packages'] as $license_id => $package) {
-                $this->associated['licenses'][$license_id]['package_path'] = $package->store('packages', 'public');
-            }
-        }
+        // // store validated package files
+        // if (isset($files['packages'])) {
+        //     foreach ($files['packages'] as $license_id => $package) {
+        //         $this->associated['licenses'][$license_id]['package_path'] = $package->store('packages', 'public');
+        //     }
+        // }
 
         // validate associated data
         $associated = Validator::make($this->associated, [
             'categories' => 'required',
-            'licenses' => 'required',
+            // 'licenses' => 'required',
             'licenses.*.price' => 'required|numeric',
-            'licenses.*.package_path' => 'required',
+            // 'licenses.*.package_path' => 'required',
         ])->validate();
 
         // store validated cover image file
@@ -101,9 +101,9 @@ class ProductForm extends BaseForm
                     ? Rule::unique('products')->ignore($this->form['id'])
                     : Rule::unique('products')
             ],
-            'web_url' => 'required_without_all:play_store_url,app_store_url',
-            'play_store_url' => 'required_without_all:web_url,app_store_url',
-            'app_store_url' => 'required_without_all:web_url,play_store_url',
+            // 'web_url' => 'required_without_all:play_store_url,app_store_url',
+            // 'play_store_url' => 'required_without_all:web_url,app_store_url',
+            // 'app_store_url' => 'required_without_all:web_url,play_store_url',
             'description' => 'required',
         ])->validate();
 

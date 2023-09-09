@@ -22,7 +22,7 @@ class SubscriptionController extends Controller
         $subscriber = Subscriber::firstOrNew($validated);
         $subscriber->save();
 
-        session()->flash('flash.banner', 'Thank you for subscribing!');
+        session()->flash('flash.banner', 'Gracias por suscribirte!');
         return redirect()->back();
     }
 }

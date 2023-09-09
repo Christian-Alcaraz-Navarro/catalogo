@@ -16,17 +16,14 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            'E-Commerce',
-            'Personalization',
-            'Dating',
-            'Travel',
-            'Social Networking',
-            'Health-Fitness',
-            'Food-Drink',
-            'Productivity',
-            'Portfolio & Blog',
-            'Finance',
-            'Trivia',
+            'Mesas de centro',
+            'Muebles de TV',
+            'Sofá cama',
+            'Escritorios',
+            'Laptops',
+            'Espejos',
+            'Comedores',
+            'Autos y motocicletas',
         ];
 
         foreach ($categories as $order => $category) {

@@ -67,17 +67,17 @@
                                 <div class="md:w-4/6 md:mr-16 space-y-6">
                                     <div class="space-y-2" x-data="{}"
                                          x-init="() => setTimeout(() => $refs.autofocus.focus(), 250)">
-                                        <x-jet-label for="name" value="{{ __('Name') }}"/>
+                                        <x-jet-label for="name" value="{{ __('Nombre') }}"/>
                                         <x-jet-input x-ref="autofocus" id="name" type="text" class="w-full"
                                                      wire:model.defer="form.name" autocomplete="off"/>
                                         <x-jet-input-error for="name"/>
                                     </div>
-                                    <div class="space-y-2">
+                                    {{-- <div class="space-y-2">
                                         <x-jet-label for="web_url" value="{{ __('Web URL') }}"/>
                                         <x-jet-input id="web_url" type="url" class="w-full"
                                                      wire:model.defer="form.web_url" placeholder="https://"/>
                                         <x-jet-input-error for="web_url"/>
-                                    </div>
+                                    </div>                                    
                                     <div class="space-y-2">
                                         <x-jet-label for="play_store_url" value="{{ __('Play Store URL') }}"/>
                                         <x-jet-input id="play_store_url" type="url" class="w-full"
@@ -89,21 +89,21 @@
                                         <x-jet-input id="app_store_url" type="text" class="w-full"
                                                      wire:model.defer="form.app_store_url" placeholder="https://"/>
                                         <x-jet-input-error for="app_store_url"/>
-                                    </div>
+                                    </div> --}}
                                     <div class="space-y-2">
-                                        <x-jet-label value="{{ __('Product Licenses') }}"/>
-                                        <div class="border border-gray-300 rounded-lg px-3 shadow-sm">
-                                            <x-table style="min-width: 550px">
+                                        {{-- <x-jet-label value="{{ __('Product Licenses') }}"/> --}}
+                                        <div class="border border-gray-300 rounded-lg px-3 shadow-sm ">
+                                            <x-table style="min-width: 150px">
                                                 <x-slot name="head">
-                                                    <x-table.heading>
+                                                    {{-- <x-table.heading>
                                                         License Type
-                                                    </x-table.heading>
+                                                    </x-table.heading> --}}
                                                     <x-table.heading>
-                                                        Price ($)
+                                                        Costo ($)
                                                     </x-table.heading>
-                                                    <x-table.heading>
+                                                    {{-- <x-table.heading>
                                                         Package (*.zip)
-                                                    </x-table.heading>
+                                                    </x-table.heading> --}}
                                                     <x-table.heading>
                                                     </x-table.heading>
                                                 </x-slot>
@@ -127,7 +127,7 @@
                                                             </x-table.cell>
                                                             <x-table.cell>
                                                                 <div class="flex flex-col text-xs items-start space-y-2">
-                                                                    @if(isset($associated['licenses'][$license->id]['package_path']))
+                                                                    {{-- @if(isset($associated['licenses'][$license->id]['package_path']))
                                                                         <a href="{{ Storage::url($associated['licenses'][$license->id]['package_path']) }}"
                                                                            target="_blank"
                                                                            class="text-blue-500 hover:underline font-medium">
@@ -157,7 +157,7 @@
                                                                             for="files.packages.{{ $license->id }}"/>
                                                                     <x-jet-input-error
                                                                             for="licenses.{{ $license->id }}.package_path"/>
-                                                                </div>
+                                                                </div> --}}
                                                             </x-table.cell>
                                                             <x-table.cell>
                                                                 @if(isset($associated['licenses'][$license->id]))

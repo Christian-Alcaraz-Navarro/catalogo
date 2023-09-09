@@ -1,13 +1,12 @@
 <?php
-
 return [
     'options' => [
         'orderby' => [
-            'Sort by popularity' => 'popularity',
-            'Sort by average rating' => 'rating',
-            'Sort by newness' => 'date',
-            'Sort by price: low to high' => 'price',
-            'Sort by price: high to low' => 'price-desc',
+            'Ordenar por popularidad' => 'popularity',
+            'Ordenar por calificación más recomendado' => 'rating',
+            'Ordenar por novedad' => 'fecha',
+            'Ordenar por precio: de menor a mayor' => 'precio',
+            'Ordenar por precio: de mayor a menor' => 'precio-desc',
         ]
     ]
 ];

@@ -4,14 +4,14 @@
 
 <nav class="border-b border-gray-100 select-none" x-data="{account_dialog: false, category_dialog: false,}">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col lg:flex-row items-center lg:space-x-10 space-y-2 lg:space-y-0">
-        <a href="{{ route('home.page') }}" class="font-bold text-xl md:text-2xl self-start lg:self-auto">
-            devshop
+        <a href="{{ route('home.page') }}" class="font-bold text-xl md:text-2xl self-start lg:self-auto flex items-center">
+            Bazar de muebles Colima
         </a>
         <ul class="w-full flex flex-1 items-center justify-center lg:justify-start space-x-4 md:space-x-6 text-gray-500 text-xs md:text-sm font-medium relative">
             <li class="md:relative">
                 {{-- Product Categories Menu --}}
                 <div @click="category_dialog = true" class="cursor-pointer transition hover:text-gray-800">
-                    Categories
+                    Categorias
                 </div>
                 <div x-show="category_dialog" x-cloak
                      class="origin-top lg:origin-top-left absolute left-0 w-full md:w-64 rounded-b-md shadow-xl z-10 mt-2"
@@ -36,9 +36,9 @@
                 </div>
             </li>
             <li class="@if(\Cart::getContent()->count() > 0) hidden md:block  @endif">
-                <a href="#" class="transition hover:text-gray-800">
-                    Why Our Templates?
-                </a>
+                {{-- <a href="#" class="transition hover:text-gray-800">
+                    Contacto: 312-2712478
+                </a> --}}
             </li>
             <li class="flex flex-1"></li>
             <li>
@@ -47,7 +47,7 @@
             <li>
                 @if(!Auth::check() && Route::has('login'))
                     <a href="{{ route('login') }}" class="transition hover:text-gray-800">
-                        {{ _('Sign in') }}
+                        {{ _('Acceder') }}
                     </a>
                 @endif
                 @if(Auth::check())
@@ -100,14 +100,15 @@
                     </div>
                 @endif
             </li>
-
-            @if(!Auth::check() && Route::has('register'))
+            {{-- //todo este es el panel de registro para usuarios, lo desahabilite --}}
+            {{-- //todo ya que no es necesario que el visitante se registre aqui. --}}
+            {{-- @if(!Auth::check() && Route::has('register'))
                 <li class="hidden md:inline">
                     <a href="{{ route('register') }}" class="transition hover:text-gray-800">
-                        {{ __('Sign up') }}
+                        {{ __('Registrate') }}
                     </a>
                 </li>
-            @endif
+            @endif --}}
         </ul>
     </div>
 </nav>

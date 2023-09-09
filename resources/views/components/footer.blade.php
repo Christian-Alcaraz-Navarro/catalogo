@@ -5,10 +5,10 @@
         <div class="flex flex-col md:flex-row lg:items-center lg:justify-between space-y-6 md:space-y-0">
             <div class="flex-1">
                 <p class="font-medium">
-                    {{ __('Get new templates in your inbox!') }}
+                    {{ __('+info: 312-2712478') }}
                 </p>
                 <p class="text-gray-500 text-xs">
-                    {{ __('New templates or big discounts. No spam from us.') }}
+                    {{ __('Nos encontramos en col. andares de Jazmin,Colima.') }}
                 </p>
             </div>
             <form class="flex space-x-2" method="POST" action="{{ route('subscribe') }}">
@@ -16,17 +16,17 @@
                     @csrf
                 </div>
                 <div class="flex-1 md:w-64">
-                    <x-jet-input name="email" type="email" placeholder="Email address" class="w-full" required/>
+                    <x-jet-input name="email" type="email" placeholder="Email" class="w-full" required/>
                 </div>
                 <x-jet-button type="submit">
-                    Subscribe
+                    Subscribete
                 </x-jet-button>
             </form>
         </div>
     </div>
     @endif
     <nav class="py-4">
-        <ul class="text-xs text-gray-500 flex flex-wrap">
+        {{-- <ul class="text-xs text-gray-500 flex flex-wrap">
             <li class="my-2 mr-6 lg:mr-8">
                 <a href="{{ route('orders.page') }}" class="transition text-blue-500 hover:text-blue-700">
                     Redownload templates
@@ -47,6 +47,6 @@
                     Licenses
                 </a>
             </li>
-        </ul>
+        </ul> --}}
     </nav>
 </footer>

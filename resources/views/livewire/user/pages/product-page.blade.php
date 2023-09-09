@@ -9,161 +9,35 @@
     </h1>
 
     <div class="space-y-6 lg:col-start-3 xl:col-start-4 lg:row-start-2 lg:row-end-4">
-        <div class="flex items-center justify-between">
-            <p class="font-medium">
-                License Options
-            </p>
-            <a href="{{ route('licenses') }}" target="_blank" class="text-xs text-blue-500">
-                Full details
-                <i class="mdi mdi-arrow-right"></i>
-            </a>
-        </div>
         <ul class="space-y-6">
             @foreach($product->licenses as $license)
                 <li>
-                    <label for="{{ $license->id }}" class="flex items-center parent cursor-pointer">
-                        <div class="flex items-center">
-                            <input wire:model="licenseId" class="hidden" type="radio" id="{{ $license->id }}"
-                                   value="{{ $license->id }}" name="license"/>
-                            <div class="radio mr-3">
-                                <i class="mdi mdi-check opacity-0 transition ease-out parent-hover:opacity-100 text-white"></i>
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-sm font-medium">
-                                    {{ $license->name }}
-                                </p>
-                                <p class="text-xs text-gray-400 font-medium">
-                                    {{ $license->summary }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="ml-auto text-xl font-medium uppercase">
+                    <label for="{{ $license->id }}" class="flex items-center parent">
+                        <div class="ml-0 text-xl font-medium uppercase" style="font-size: 4rem;">
                             @priceforhumans($license->pivot->price)
                         </div>
                     </label>
                 </li>
             @endforeach
         </ul>
-        <div class="space-y-3">
-            <x-jet-button type="button" wire:click="addToCart({{ $product->id }})"
-                          class="w-full justify-center h-12">
-                Add to cart
-            </x-jet-button>
-            <ul class="flex space-x-2">
-                @if($product->play_store_url)
-                    <li class="flex-1">
-                        <a href="{{ $product->play_store_url }}" target="_blank"
-                           class="w-full justify-center h-12 btn-secondary">
-                            <img src="/img/google-play-4.svg" class="h-full" alt="Google Play">
-                        </a>
-                    </li>
-                @endif
-                @if($product->app_store_url)
-                    <li class="flex-1">
-                        <a href="{{ $product->app_store_url }}" target="_blank"
-                           class="w-full justify-center h-12 btn-secondary">
-                            <img src="/img/available-on-the-app-store.svg" class="h-10"
-                                 alt="Available on the App Store">
-                        </a>
-                    </li>
-                @endif
-                @if($product->web_url)
-                    <li class="flex-1">
-                        <a href="{{ $product->web_url }}" target="_blank"
-                           class="w-full justify-center h-12 btn-secondary">
-                            Live preview
-                        </a>
-                    </li>
-                @endif
-            </ul>
-        </div>
-
-        <div class="flex divide-x">
-            <div class="flex-1 flex flex-col items-center py-5">
-                <ul class="flex items-center">
-                    <template x-for="i in 4">
-                        <li>
-                            <i class="mdi mdi-star text-yellow-300"></i>
-                        </li>
-                    </template>
-                    <li>
-                        <i class="mdi mdi-star text-gray-300"></i>
-                    </li>
-                </ul>
-                <p class="text-xs text-gray-500">
-                    (2 reviews)
-                </p>
-            </div>
-            <div class="flex-1 flex flex-col items-center py-5">
-                <p class="text-xl font-medium">
-                    🛒 {{ $product->purchases->count() }}
-                </p>
-                <p class="text-xs text-gray-500">
-                    Purchases
-                </p>
-            </div>
-        </div>
-
-        <ul class="text-sm">
-            <li class="bg-gray-100">
-                <div class="flex items-center justify-between p-3">
-                    <p class="font-medium">
-                        Released
-                    </p>
-                    <p class="text-gray-500">
-                        @diffdateforhumans($product->created_at)
-                    </p>
-                </div>
-            </li>
-            <li class="">
-                <div class="flex items-center justify-between p-3">
-                    <p class="font-medium">
-                        Updated
-                    </p>
-                    <p class="text-gray-500">
-                        @diffdateforhumans($product->updated_at)
-                    </p>
-                </div>
-            </li>
-            <li class="bg-gray-100">
-                <div class="flex items-center justify-between p-3">
-                    <p class="font-medium">
-                        Version
-                    </p>
-                    <p class="text-gray-500">
-                        vX.X.X
-                    </p>
-                </div>
-            </li>
-            <li class="">
-                <div class="flex items-center justify-between p-3 space-x-3">
-                    <p class="font-medium">
-                        Category
-                    </p>
-                    <div class="text-right">
-                        @foreach($product->categories as $category)
-                            <a href="{{ route('category', ['slug' => $category->slug]) }}"
-                               class="text-blue-500 whitespace-nowrap">
-                                {{ $category->name }}@if(!$loop->last),@endif
-                            </a>
-                        @endforeach
+        <div class="flex space-x-1 items-center"> 
+            <ul class="text-sm">
+                <li class="bg-gray-50">
+                    <div class="flex items-center justify-between p-3">
+                        <p class="font-medium">
+                            Contacto:
+                        </p>
                     </div>
-                </div>
-            </li>
-            <li class="bg-gray-100">
-                <div class="flex items-center justify-between p-3">
-                    <p class="font-medium">
-                        Questions?
-                    </p>
-                    <a href="mailto:{{ env('MAIL_FROM_ADDRESS') }}" class="text-blue-500">
-                        Contact Us
-                    </a>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+            <a href="https://api.whatsapp.com/send?phone=523122712478&text=Hola%20buenas%20tardes,%20me%20interesa%20información%20sobre:%20{{ $product->name }}."
+               class="btn btn-primary d-flex align-middle align-items-center ml-1"
+               style="text-decoration: none; color: white;">
+                <img src="{{ asset('storage/whatsapp.jpeg') }}" alt="Icono" class="me-2 img-fluid mr-2" style="max-width: 30px;">
+                <span>312-2712478</span>
+            </a>
+        </div>        
     </div>
-
-
     {{-- Tabs Section  --}}
     <div x-cloak x-data="tabs()" class="lg:col-span-2 xl:col-span-3">
         <ul class="inline-flex w-full border-b border-gray-300 select-none text-sm space-x-8">
@@ -176,10 +50,10 @@
             </template>
         </ul>
         <div class="py-5">
-            <div x-show="getActive() === 'description'" class="trix-content">
+            <div x-show="getActive() === 'descripcion'" class="trix-content">
                 {!! $product->description !!}
             </div>
-            <div x-show="getActive() === 'screenshots'" class="relative -mx-4 md:mx-0 px-4 md:px-0">
+            <div x-show="getActive() === 'galeria'" class="relative -mx-4 md:mx-0 px-4 md:px-0">
                 <ul class="overflow-x-auto space-x-3 whitespace-nowrap -mx-4 md:mx-0 px-4 md:px-0">
                     @foreach($product->screenshots as $screenshot)
                         <li class="inline-flex">
@@ -193,11 +67,11 @@
                 </ul>
                 <div class="absolute top-0 right-0 bottom-0 w-5 md:w-10 bg-gradient-to-r from-transparent to-white"></div>
             </div>
-            <div x-show="getActive() === 'reviews'">
+            {{-- <div x-show="getActive() === 'reviews'">
                 <p class="text-sm leading-relaxed">
                     coming soon...
                 </p>
-            </div>
+            </div> --}}
         </div>
     </div>
 
@@ -211,12 +85,12 @@
                         {{ $category->name }}
                     </p>
                     <p class="text-gray-500 text-sm">
-                        Related templates in the same category.
+                        Productos relacionados.
                     </p>
                 </header>
                 <a href="{{ route('category', ['slug' => $category->slug]) }}"
                    class="order-last md:order-none w-full md:w-auto btn-secondary h-10 justify-center space-x-1">
-                    <span>View all</span>
+                    <span>Ver todos</span>
                     <span class="md:hidden">related templates</span>
                 </a>
                 <ul class="grid grid-cols-2 xl:grid-cols-3 gap-6 w-full my-6">
@@ -235,8 +109,8 @@
 <script>
   function tabs() {
     return {
-      tab: 'description',
-      tabs: ['description', @if (count($product->screenshots))'screenshots', @endif 'reviews'],
+      tab: 'descripcion',
+      tabs: ['descripcion', 'galeria'],
       getTabs() {
         return this.tabs
       },

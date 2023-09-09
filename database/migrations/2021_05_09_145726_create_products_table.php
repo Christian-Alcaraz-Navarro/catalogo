@@ -18,9 +18,9 @@ class CreateProductsTable extends Migration
             $table->string('cover_image_path');
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->string('web_url')->nullable();
-            $table->string('play_store_url')->nullable();
-            $table->string('app_store_url')->nullable();
+            $table->string('web_url')->nullable()->default(null);
+            $table->string('play_store_url')->nullable()->default(null);
+            $table->string('app_store_url')->nullable()->default(null);
             $table->text('description');
             $table->softDeletes();
             $table->timestamps();

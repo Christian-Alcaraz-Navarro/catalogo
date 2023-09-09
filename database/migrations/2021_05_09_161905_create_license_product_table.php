@@ -14,10 +14,10 @@ class CreateLicenseProductTable extends Migration
     public function up()
     {
         Schema::create('license_product', function (Blueprint $table) {
-            $table->foreignId('license_id')->constrained();
+            $table->foreignId('license_id')->constrained()->default(1);
             $table->foreignId('product_id')->constrained();
             $table->integer('price')->default(0)->comment('default currency => usd');
-            $table->string('package_path');
+            $table->string('package_path')->default(null)->nullable();
             $table->timestamps();
         });
     }

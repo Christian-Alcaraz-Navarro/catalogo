@@ -25,7 +25,7 @@
                     <x-jet-label for="password" value="{{ __('Password') }}" />
                     @if (Route::has('password.request'))
                         <a class="hover:underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                            {{ __('Forgot your password?') }}
+                            {{ __('Olvidaste tu password?') }}
                         </a>
                     @endif
                 </div>
@@ -35,16 +35,18 @@
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Recuerdame') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('register'))
+                {{-- 
+                    //todo de nuevo deshabilito el panel de registro para nuevos usuarios
+                   @if (Route::has('register'))
                     <a class="text-sm text-gray-600 hover:text-gray-900 underline" href="{{ route('register') }}">
                         {{ __('Don\'t have an account? Sign up') }}
                     </a>
-                @endif
+                @endif --}}
 
                 <x-jet-button class="ml-4 h-10" tabindex="3">
                     {{ __('Log in') }}
