@@ -10,11 +10,11 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="close" wire:loading.attr="disabled">
-                {{ __('Cancel') }}
+                Cancelar
             </x-jet-secondary-button>
 
             <x-jet-danger-button class="ml-2" wire:click="delete" wire:loading.attr="disabled">
-                {{ __('Delete') }}
+                Eliminar
             </x-jet-danger-button>
         </x-slot>
     </x-jet-confirmation-modal>

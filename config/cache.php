@@ -13,9 +13,11 @@ return [
     | using this caching library. This connection is used when another is
     | not explicitly specified when executing a given caching function.
     |
-    */
+    
+    //todo aqui cambie esta configuracuin de file a arrary esto es temporal ojo 
 
-    'default' => env('CACHE_DRIVER', 'file'),
+    // 'default' => env('CACHE_DRIVER', 'array'),*/
+     'default' => env('CACHE_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------

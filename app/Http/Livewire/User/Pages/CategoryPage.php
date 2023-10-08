@@ -37,7 +37,7 @@ class CategoryPage extends Component
             $query = $this->category->premium_products;
         }
 
-        return $query->paginate(2);
+        return $query->paginate(500);
     }
 
     public function render()

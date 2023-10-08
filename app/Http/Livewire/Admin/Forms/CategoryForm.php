@@ -15,13 +15,13 @@ class CategoryForm extends BaseForm
     public $form = [
         'id' => null,
         'name' => '',
-        'order' => 1,
+        'order' => '',
     ];
 
     public function mount(array $params = [])
     {
         parent::mount($params);
-        $this->title = isset($params['id']) ? 'Update Category' : 'Add A Category';
+        $this->title = isset($params['id']) ? 'Actualizar categoria' : 'Agregar categoria';
     }
 
     public function submit()
@@ -40,7 +40,7 @@ class CategoryForm extends BaseForm
         $this->closeModal();
 
         $this->emit('list:refresh');
-        $this->emit('toast', 'Category Saved', $category['name'].' has been saved.');
+        $this->emit('toast', 'Categoria guardada', $category['name'].',se guardo.');
 
     }
 

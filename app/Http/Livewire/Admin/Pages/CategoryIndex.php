@@ -56,8 +56,8 @@ class CategoryIndex extends Component
     {
         $this->openDeleteModal(
             $category['id'],
-            'Remove Category',
-            'Are you sure you want to remove \''.$category['name'].'\' category?'
+            'Eliminar categoria',
+            'Estas seguro de eliminar la categoria\''.$category['name']
         );
     }
 
@@ -65,7 +65,7 @@ class CategoryIndex extends Component
     public function delete(Category $category)
     {
         $category->delete();
-        $this->emit('toast', 'Category Deleted', $category['name'].' has been deleted.');
+        $this->emit('toast', 'Categoria eliminada', $category['name'].' se elimino.');
     }
 
 

@@ -49,7 +49,7 @@ class ProductForm extends BaseForm
         parent::mount($params);
 
         $this->tab = $this->tabs[0];
-        $this->title = isset($params['id']) ? 'Update Product' : 'Add A Product';
+        $this->title = isset($params['id']) ? 'Actualizar producto' : 'Agregar producto';
 
         // load associated models
         if (isset($params['id'])) {
@@ -130,7 +130,7 @@ class ProductForm extends BaseForm
         $this->closeModal();
 
         $this->emit('list:refresh');
-        $this->emit('toast', 'Product Saved', '\'' . $product['name'] . '\' has been saved.');
+        $this->emit('toast', 'Producto guardado', '\'' . $product['name'] . '\' se guardo.');
 
     }
 

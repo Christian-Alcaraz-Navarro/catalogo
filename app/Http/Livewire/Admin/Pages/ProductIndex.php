@@ -80,8 +80,8 @@ class ProductIndex extends Component
     {
         $this->openDeleteModal(
             $product['id'],
-            'Remove Product',
-            'Are you sure you want to remove \''.$product['name'].'\' product?'
+            'Eliminar producto',
+            'Estas seguro de eliminar \''.$product['name']
         );
     }
 
@@ -89,7 +89,7 @@ class ProductIndex extends Component
     public function delete(Product $product)
     {
         $product->delete();
-        $this->emit('toast', 'Product Deleted', $product['name'].' has been deleted.');
+        $this->emit('toast', 'Producto eliminado', $product['name'].' se elimino.');
     }
 
 }

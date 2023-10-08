@@ -15,5 +15,7 @@ return [
 
     'previous' => '&laquo; Previous',
     'next' => 'Next &raquo;',
-
+    'showing' => 'Mostrando :start al :end de :total resultados',
 ];
+
+
