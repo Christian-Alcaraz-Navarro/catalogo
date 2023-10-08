@@ -33387,6 +33387,10 @@ select {
   padding-left: 1.25rem;
 }
 
+.trix-button-group--file-tools [data-trix-action="x-attach"] {
+    display: none !important;
+}
+
 .trix-content ul {
   list-style-type: disc;
   padding-left: 1.25rem;
@@ -33407,6 +33411,7 @@ select {
   --tw-text-opacity: 1;
   color: rgba(30, 64, 175, var(--tw-text-opacity));
 }
+
 
 .trix-content a {
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;

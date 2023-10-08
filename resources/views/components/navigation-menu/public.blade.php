@@ -5,12 +5,12 @@
 <nav class="border-b border-gray-100 select-none" x-data="{account_dialog: false, category_dialog: false,}">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col lg:flex-row items-center lg:space-x-10 space-y-2 lg:space-y-0">
         <a href="{{ route('home.page') }}" class="font-bold text-xl md:text-2xl self-start lg:self-auto flex items-center">
-            Bazar de muebles Colima
+            Bazar Colima
         </a>
         <ul class="w-full flex flex-1 items-center justify-center lg:justify-start space-x-4 md:space-x-6 text-gray-500 text-xs md:text-sm font-medium relative">
             <li class="md:relative">
                 {{-- Product Categories Menu --}}
-                <div @click="category_dialog = true" class="cursor-pointer transition hover:text-gray-800">
+                <div @click="category_dialog = true" class="cursor-pointer transition font-bold text-lg" style="color: red;">
                     Categorias
                 </div>
                 <div x-show="category_dialog" x-cloak
@@ -47,7 +47,7 @@
             <li>
                 @if(!Auth::check() && Route::has('login'))
                     <a href="{{ route('login') }}" class="transition hover:text-gray-800">
-                        {{ _('Acceder') }}
+                        {{ _('Administrador') }}
                     </a>
                 @endif
                 @if(Auth::check())
